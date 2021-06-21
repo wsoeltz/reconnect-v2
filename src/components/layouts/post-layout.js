@@ -21,9 +21,36 @@ const Image = (props) => {
   )
 }
 
+const ProsAndCons = ({pros, cons}) => {
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Pros</strong></th>
+          <th><strong>Cons</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={{width: '50%'}}>
+            <ul>
+              {pros.map(d => <li key={d}>{d}</li>)}
+            </ul>
+          </td>
+          <td>
+            <ul>
+              {cons.map(d => <li key={d}>{d}</li>)}
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+}
+
 const Figcaption = ({children}) => <FigcaptionEl><ReactMarkdown children={children} /></FigcaptionEl>;
 
-const shortcodes = { img: Image, Figcaption }
+const shortcodes = { img: Image, Figcaption, ProsAndCons }
 
 const PostLayout = (props) => {
   return (

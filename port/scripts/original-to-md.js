@@ -48,6 +48,10 @@ posts.forEach(d => {
 
   content_MD = content_MD.replace(new RegExp('FIGCAPTIONSTART', 'g'), '<Figcaption>')
   content_MD = content_MD.replace(new RegExp('FIGCAPTIONEND', 'g'), '</Figcaption>')
+  content_MD = content_MD.replace(new RegExp('TABLESTART', 'g'), '<ProsAndCons ')
+  content_MD = content_MD.replace(new RegExp('TABLEEND', 'g'), ' />')
+  content_MD = content_MD.replace(/\\\[/g, '[')
+  content_MD = content_MD.replace(/\\\]/g, ']')
 
   content_MD = content_MD
                 .replace(/http:\/\/reconnect\.life\/wp-content\/uploads\/....\/..\//g, '')
