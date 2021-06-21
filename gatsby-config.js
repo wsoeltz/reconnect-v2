@@ -11,7 +11,14 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-plugin-mdx",
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/components/layouts/post-layout.js"),
+        },
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
