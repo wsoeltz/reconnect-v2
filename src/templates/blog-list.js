@@ -1,15 +1,10 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 
-export default function Home({ data }) {
-  const { title, description } = data.site.siteMetadata
-  const posts = data.allMdx.edges;
-
-  return (
-    <div>
-      <h1>{title}</h1>
-      <p>{description}</p>
-
+export default class BlogList extends React.Component {
+  render() {
+    const posts = this.props.data.allMdx.edges
+    return (
       <div>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.slug
@@ -22,21 +17,16 @@ export default function Home({ data }) {
           );
         })}
       </div>
-    </div>
-  )
+    )
+  }
 }
 
-export const pageQuery = graphql`
-  query MetadataQuery {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
+export const blogListQuery = graphql`
+  query blogListQuery($skip: Int!, $limit: Int!) {
     allMdx(
-      sort: { fields: [frontmatter___date], order: DESC },
-      limit: 10
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: $limit
+      skip: $skip
     ) {
       edges {
         node {

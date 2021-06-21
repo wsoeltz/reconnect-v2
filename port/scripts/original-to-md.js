@@ -41,6 +41,7 @@ posts.forEach(d => {
 
   const slug = d.post_name.__cdata;
   const title = d.title;
+  const author = d.creator.__cdata.replace('.', '-');
 
   const content_HTML = d.encoded[0].__cdata;
   let content_MD = nhm.translate(/* html */ content_HTML);
@@ -48,15 +49,17 @@ posts.forEach(d => {
   content_MD = content_MD.replace(new RegExp('FIGCAPTIONSTART', 'g'), '<Figcaption>')
   content_MD = content_MD.replace(new RegExp('FIGCAPTIONEND', 'g'), '</Figcaption>')
 
-  const replacer = new RegExp(`http://reconnect.life/wp-content/uploads/${year}/${month}/`, 'g');
-  content_MD = content_MD.replace(replacer, '')
+  content_MD = content_MD
+                .replace(/http:\/\/reconnect\.life\/wp-content\/uploads\/....\/..\//g, '')
+  content_MD = content_MD
+                .replace(/http:\/\/reconnect\.life\//g, '/')
 
-  console.log(`http://localhost:8000/${year}/${month}/${day}/${slug}/`);
   fs.writeFileSync(`${dir}${slug}.mdx`,
 `---
 title: "${title}"
 path: "/${year}/${month}/${day}/${slug}/"
-date: "${date}"
+author: "${author}"
+date: ${year}-${month}-${day}
 ---
 
 ${content_MD}

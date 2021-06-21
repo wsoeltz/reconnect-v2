@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "Reconnect.life",
+     description: "Experience the world on your feet, not on your phone",
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -8,6 +9,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     "gatsby-plugin-styled-components",
     "gatsby-plugin-gatsby-cloud",
+    'gatsby-transformer-remark',
     {
       resolve: "gatsby-plugin-manifest",
       options: {

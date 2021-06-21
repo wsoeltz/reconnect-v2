@@ -14,7 +14,6 @@ const FigcaptionEl = styled.figcaption`
 `;
 
 const Image = (props) => {
-  console.log(props);
   return (
     <Figure>
       <img src={'/images/' + props?.src} alt={props?.alt} />
@@ -26,10 +25,12 @@ const Figcaption = ({children}) => <FigcaptionEl><ReactMarkdown children={childr
 
 const shortcodes = { img: Image, Figcaption }
 
-const PostLayout = ({ children }) => (
-  <div>
-    <MDXProvider components={shortcodes}>{children}</MDXProvider>
-  </div>
-)
+const PostLayout = (props) => {
+  return (
+    <div>
+      <MDXProvider components={shortcodes}>{props.children}</MDXProvider>
+    </div>
+  )
+}
 
 export default PostLayout;
