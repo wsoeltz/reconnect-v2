@@ -48,8 +48,8 @@ posts.forEach(d => {
   content_MD = content_MD.replace(new RegExp('FIGCAPTIONSTART', 'g'), '<Figcaption>')
   content_MD = content_MD.replace(new RegExp('FIGCAPTIONEND', 'g'), '</Figcaption>')
 
-  // const replacer = new RegExp(`http://reconnect.life/wp-content/uploads/${year}/${month}/`, 'g');
-  // const contentWithImages = content_MD.replace(replacer, '')
+  const replacer = new RegExp(`http://reconnect.life/wp-content/uploads/${year}/${month}/`, 'g');
+  content_MD = content_MD.replace(replacer, '')
 
   console.log(`http://localhost:8000/${year}/${month}/${day}/${slug}/`);
   fs.writeFileSync(`${dir}${slug}.mdx`,
