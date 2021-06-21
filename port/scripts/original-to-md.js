@@ -3,7 +3,9 @@ const fs = require('fs');
 const { NodeHtmlMarkdown, NodeHtmlMarkdownOptions } = require('node-html-markdown');
 
 const nhm = new NodeHtmlMarkdown(
-  /* options (optional) */ {}, 
+  /* options (optional) */ {
+    // ignore: ['figure', 'img', 'figcaption'],
+  }, 
   /* customTransformers (optional) */ undefined
 );
 
@@ -41,7 +43,10 @@ posts.forEach(d => {
   const title = d.title;
 
   const content_HTML = d.encoded[0].__cdata;
-  const content_MD = nhm.translate(/* html */ content_HTML);
+  let content_MD = nhm.translate(/* html */ content_HTML);
+
+  content_MD = content_MD.replace(new RegExp('FIGCAPTIONSTART', 'g'), '<Figcaption>')
+  content_MD = content_MD.replace(new RegExp('FIGCAPTIONEND', 'g'), '</Figcaption>')
 
   // const replacer = new RegExp(`http://reconnect.life/wp-content/uploads/${year}/${month}/`, 'g');
   // const contentWithImages = content_MD.replace(replacer, '')
