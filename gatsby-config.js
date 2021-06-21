@@ -3,6 +3,9 @@ module.exports = {
     title: "Reconnect.life",
   },
   plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     "gatsby-plugin-styled-components",
     "gatsby-plugin-gatsby-cloud",
     {
