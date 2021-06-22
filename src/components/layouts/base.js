@@ -1,17 +1,22 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Sidebar from '../navigation/Sidebar';
-import {mobileWidth} from '../../Utils';
+import {mobileWidth, headerFont, bodyFont} from '../../Utils';
 
 const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
   * {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: ${bodyFont};
     box-sizing: border-box;
     color: #222727;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Karma', serif;
+    font-family: ${headerFont};
   }
 
   h1 {
@@ -24,6 +29,17 @@ const GlobalStyle = createGlobalStyle`
 
   body.mobile-menu-open {
     overflow: hidden;
+  }
+
+  p, main ul li {
+    font-size: 15px;
+    line-height: 1.7em;
+    color: #222727;
+  }
+
+  a {
+    color: #366454;
+    font-weight: 600;
   }
 `
 

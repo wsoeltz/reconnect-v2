@@ -5,7 +5,7 @@ import {Link, graphql, useStaticQuery} from 'gatsby';
 import {logo, logoMobile, hamburgerMenu} from './logo';
 
 const sidebarWidth = 224; // in px
-const sidebarMobileHeight = 50; // in px
+const sidebarMobileHeight = 78; // in px
 
 const Root = styled.div`
   width: ${sidebarWidth}px;
@@ -112,6 +112,11 @@ const CopyrightInformation = styled.div`
     font-size: 12px;
     letter-spacing: .6px;
     color: #EFEBE2;
+  }
+
+  a {
+    font-weight: 400;
+    text-decoration: none;
   }
 `;
 

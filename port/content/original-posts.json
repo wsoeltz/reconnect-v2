@@ -68,6 +68,7 @@
          "item": [
             {
                "title": "Welcome to Reconnect.Life",
+               "featuredImage": "welcome-cover.jpeg",
                "link": "http://reconnect.life/2018/01/09/about-reconnect-life/",
                "pubDate": "Tue, 09 Jan 2018 23:12:47 +0000",
                "creator": {
@@ -298,6 +299,7 @@
             },
             {
                "title": "Salomon Speed Cross 4",
+               "featuredImage": "solomon-speed-cross-4-cover.jpg",
                "link": "http://reconnect.life/2018/01/18/solomon-speed-cross-4/",
                "pubDate": "Thu, 18 Jan 2018 16:16:12 +0000",
                "creator": {
@@ -405,6 +407,7 @@
             },
             {
                "title": "Carter Notch (Secret) Loop",
+               "featuredImage": "carter-notch-loop-cover-compressed.jpeg",
                "link": "http://reconnect.life/2018/01/25/carter-notch-secret-loop/",
                "pubDate": "Thu, 25 Jan 2018 19:42:09 +0000",
                "creator": {
@@ -527,6 +530,7 @@
             },
             {
                "title": "Black Diamond Trail Ergo Cork Trekking Poles",
+               "featuredImage": "walking_with_black_diamond_ergo_cork_poles_compressed.jpeg",
                "link": "http://reconnect.life/2018/01/31/black-diamond-trail-ergo-cork-trekking-poles/",
                "pubDate": "Wed, 31 Jan 2018 22:26:00 +0000",
                "creator": {
@@ -629,6 +633,7 @@
             },
             {
                "title": "Choosing the Right Personal Locator Beacon or Satellite Messenger",
+               "featuredImage": "bushwhacking-plb-compressed.jpeg",
                "link": "http://reconnect.life/2018/02/07/choosing-the-right-personal-locator-beacon-or-satellite-messenger/",
                "pubDate": "Wed, 07 Feb 2018 21:42:28 +0000",
                "creator": {
@@ -746,6 +751,7 @@
             },
             {
                "title": "Passaconaway/Whiteface Abandoned Trail Loop from the North",
+               "featuredImage": "passaconway-abandoned-trail.jpeg",
                "link": "http://reconnect.life/2018/02/14/passaconaway-whiteface-abandoned-trail-loop-from-the-north/",
                "pubDate": "Wed, 14 Feb 2018 21:24:07 +0000",
                "creator": {
@@ -868,6 +874,7 @@
             },
             {
                "title": "9 Ways to Shed Pack Weight For Almost No Money",
+               "featuredImage": "hiker-pointing-into-distance-compressed.jpeg",
                "link": "http://reconnect.life/2018/02/23/9-ways-to-shed-pack-weight-for-almost-no-money/",
                "pubDate": "Fri, 23 Feb 2018 18:23:13 +0000",
                "creator": {
@@ -1008,6 +1015,7 @@
             },
             {
                "title": "Outdoor Research Mt. Baker Modular Mittens",
+               "featuredImage": "mt-baker-mits-in-snow-storm.jpeg",
                "link": "http://reconnect.life/2018/03/08/outdoor-research-mt-baker-modular-mittens/",
                "pubDate": "Thu, 08 Mar 2018 22:29:18 +0000",
                "creator": {
@@ -1199,6 +1207,7 @@
             },
             {
                "title": "MSR Lightning Ascent Snowshoes",
+               "featuredImage": "snow-covered-peak.jpeg",
                "link": "http://reconnect.life/2018/03/15/msr-lightning-ascent-snowshoes/",
                "pubDate": "Thu, 15 Mar 2018 20:17:08 +0000",
                "creator": {
@@ -1316,6 +1325,7 @@
             },
             {
                "title": "PCT Update Zero",
+               "featuredImage": "sunset-from-plane.jpeg",
                "link": "http://reconnect.life/2018/03/22/pct-update-zero/",
                "pubDate": "Thu, 22 Mar 2018 17:26:28 +0000",
                "creator": {
@@ -2189,6 +2199,7 @@
             },
             {
                "title": "Pre-PCT Gear List",
+               "featuredImage": "all-gear-desert.jpeg",
                "link": "http://reconnect.life/2018/03/30/pre-pct-gear-list/",
                "pubDate": "Fri, 30 Mar 2018 16:58:46 +0000",
                "creator": {
@@ -2457,6 +2468,7 @@
             },
             {
                "title": "PCT Update 1: Wind and Banjos",
+               "featuredImage": "PSX_20180408_081817.jpeg",
                "link": "http://reconnect.life/2018/04/08/pct-update-1-wind-and-banjos/",
                "pubDate": "Sun, 08 Apr 2018 17:55:41 +0000",
                "creator": {
@@ -3301,6 +3313,7 @@
             },
             {
                "title": "PCT Update 2: Dog Mayors and Gradient Ecosystems",
+               "featuredImage": "PSX_20180418_203402.jpeg",
                "link": "http://reconnect.life/2018/04/19/pct-update-2-dog-mayors-and-gradient-ecosystems/",
                "pubDate": "Thu, 19 Apr 2018 04:02:09 +0000",
                "creator": {
@@ -3842,6 +3855,7 @@
             },
             {
                "title": "PCT Update 3: What Goes Up Must Come Down",
+               "featuredImage": "PSX_20180426_202454.jpeg",
                "link": "http://reconnect.life/2018/04/27/pct-update-3-what-goes-up-must-come-down/",
                "pubDate": "Fri, 27 Apr 2018 20:06:31 +0000",
                "creator": {
@@ -4498,6 +4512,7 @@
             },
             {
                "title": "PCT Update 4: Walking Through the Clouds",
+               "featuredImage": "PSX_20180504_212201.jpeg",
                "link": "http://reconnect.life/2018/05/05/pct-update-4-walking-through-the-clouds/",
                "pubDate": "Sat, 05 May 2018 16:58:28 +0000",
                "creator": {
@@ -5378,6 +5393,7 @@
             },
             {
                "title": "PCT Update 5: Marathon Through the Mojave",
+               "featuredImage": "PSX_20180515_142207.jpeg",
                "link": "http://reconnect.life/2018/05/16/pct-update-5-death-march-through-the-mojave/",
                "pubDate": "Wed, 16 May 2018 13:07:48 +0000",
                "creator": {
@@ -5704,6 +5720,7 @@
             },
             {
                "title": "PCT Post-Desert Gear Update: What Worked, What Didn't, and What I'll Be Taking Into the Sierra",
+               "featuredImage": "PSX_20180529_124832.jpeg",
                "link": "http://reconnect.life/2018/05/29/pct-post-desert-gear-update-what-worked-what-didnt-and-what-ill-be-taking-into-the-sierra/",
                "pubDate": "Tue, 29 May 2018 21:54:20 +0000",
                "creator": {
@@ -5895,6 +5912,7 @@
             },
             {
                "title": "PCT Update 6: Into the Sierra Nevada",
+               "featuredImage": "PSX_20180616_082116.jpeg",
                "link": "http://reconnect.life/2018/06/16/pct-update-6-into-the-sierra-nevada/",
                "pubDate": "Sat, 16 Jun 2018 16:28:01 +0000",
                "creator": {
@@ -6179,6 +6197,7 @@
             },
             {
                "title": "PCT Update 7: Down Time",
+               "featuredImage": "PSX_20180628_095836.jpeg",
                "link": "http://reconnect.life/2018/06/28/pct-update-7-down-time/",
                "pubDate": "Thu, 28 Jun 2018 18:05:37 +0000",
                "creator": {
@@ -6499,6 +6518,7 @@
             },
             {
                "title": "PCT Update 8: Light Through the Forest",
+               "featuredImage": "PSX_20180713_084748.jpeg",
                "link": "http://reconnect.life/2018/07/13/pct-update-8-light-through-the-forest/",
                "pubDate": "Fri, 13 Jul 2018 17:24:13 +0000",
                "creator": {
@@ -6819,6 +6839,7 @@
             },
             {
                "title": "PCT Update 9: Midpoint",
+               "featuredImage": "PSX_20180724_204400.jpeg",
                "link": "http://reconnect.life/2018/07/26/pct-update-9-midpoint/",
                "pubDate": "Thu, 26 Jul 2018 20:47:35 +0000",
                "creator": {
@@ -7211,6 +7232,7 @@
             },
             {
                "title": "PCT Update 10: Smokescreen",
+               "featuredImage": "20180802_181913-PANO.jpeg",
                "link": "http://reconnect.life/2018/08/13/pct-update-10-smokescreen/",
                "pubDate": "Mon, 13 Aug 2018 14:25:49 +0000",
                "creator": {
@@ -7351,6 +7373,7 @@
             },
             {
                "title": "PCT Update 11: Wonder and Woe",
+               "featuredImage": "PSX_20180825_193316.jpeg",
                "link": "http://reconnect.life/2018/08/27/pct-update-11-wonder-and-woe/",
                "pubDate": "Mon, 27 Aug 2018 00:19:08 +0000",
                "creator": {
@@ -7599,6 +7622,7 @@
             },
             {
                "title": "PCT Update 12: Countdown",
+               "featuredImage": "PSX_20180903_063802.jpeg",
                "link": "http://reconnect.life/2018/09/04/pct-update-12-countdown/",
                "pubDate": "Tue, 04 Sep 2018 14:25:34 +0000",
                "creator": {
@@ -7993,6 +8017,7 @@
             },
             {
                "title": "PCT Update 13 (Final): Whisper",
+               "featuredImage": "PSX_20180925_153546.jpeg",
                "link": "http://reconnect.life/2018/09/25/pct-update-13-final-whisper/",
                "pubDate": "Tue, 25 Sep 2018 19:52:20 +0000",
                "creator": {
@@ -8385,6 +8410,7 @@
             },
             {
                "title": "Torres del Paine: The W Traverse in Reverse",
+               "featuredImage": "20200219_140618.jpeg",
                "link": "http://reconnect.life/2020/06/03/torres-del-paine-the-w-traverse-in-reverse/",
                "pubDate": "Wed, 03 Jun 2020 20:42:44 +0000",
                "creator": {
@@ -8487,6 +8513,7 @@
             },
             {
                "title": "Creating a VT 4k Loop: Escaping the NH Crowds and Stumbling on some Stinging Nettle",
+               "featuredImage": "PSX_20200813_180635-small.jpeg",
                "link": "http://reconnect.life/2020/08/14/creating-a-vt-4k-loop-escaping-the-nh-crowds-and-stumbling-on-some-stinging-nettle/",
                "pubDate": "Fri, 14 Aug 2020 19:30:18 +0000",
                "creator": {
@@ -8604,6 +8631,7 @@
             },
             {
                "title": "The most beautiful and pleasant bushwhack in the Wild River Wilderness",
+               "featuredImage": "2009-Wild-River-West-Bald-Face2-compressed.jpeg",
                "link": "http://reconnect.life/2020/09/16/the-most-beautiful-and-pleasant-bushwhack-in-the-wild-river-wilderness/",
                "pubDate": "Wed, 16 Sep 2020 19:52:43 +0000",
                "creator": {
@@ -8721,6 +8749,7 @@
             },
             {
                "title": "The peak doesn’t always have to be the high point of your trip",
+               "featuredImage": "Lookout.jpeg",
                "link": "http://reconnect.life/2021/01/25/the-peak-doesnt-always-have-to-be-the-high-point-of-your-trip/",
                "pubDate": "Mon, 25 Jan 2021 15:29:34 +0000",
                "creator": {

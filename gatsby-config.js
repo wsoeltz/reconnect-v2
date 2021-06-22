@@ -48,8 +48,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `IBM Plex Sans\:400,400i,600`,
-          `Karma\:400,700`
+          `Lato\:400,400i,600`,
+          `Alegreya\:500,700,800`
         ],
         display: 'block'
       }

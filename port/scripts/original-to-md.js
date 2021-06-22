@@ -41,6 +41,7 @@ posts.forEach(d => {
 
   const slug = d.post_name.__cdata;
   const title = d.title;
+  const featuredImage = d.featuredImage;
   const author = d.creator.__cdata.replace('.', '-');
   const category = d.category.find(dd => dd._domain === 'category')._nicename;
 
@@ -65,6 +66,7 @@ title: "${title}"
 path: "/${year}/${month}/${day}/${slug}/"
 author: "${author}"
 category: "${category}"
+featuredImage: "${featuredImage}"
 date: ${year}-${month}-${day}
 ---
 
