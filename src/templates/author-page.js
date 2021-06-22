@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import StandardContentLayout from '../components/layouts/standard-content';
 import HorizontalCard from '../components/cards/HorizontalCard';
 

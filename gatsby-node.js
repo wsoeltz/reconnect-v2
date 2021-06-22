@@ -30,6 +30,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               slug
               frontmatter {
                 author
+                category
               }
             }
           }
