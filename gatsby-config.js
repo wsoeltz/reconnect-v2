@@ -48,7 +48,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Lato\:400,400i,600`,
+          `Lato\:400,400i,700`,
           `Alegreya\:500,700,800`
         ],
         display: 'block'

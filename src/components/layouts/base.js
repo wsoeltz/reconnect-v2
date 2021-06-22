@@ -55,15 +55,19 @@ const Root = styled.div`
   }
 `;
 
+const Content = styled.div`
+  width: 100%;
+`;
+
 const BaseLayout = ({children}) => {
   return (
     <React.Fragment>
       <GlobalStyle />
       <Root>
         <Sidebar />
-        <div>
+        <Content>
           {children}
-        </div>
+        </Content>
       </Root>
     </React.Fragment>
   )
