@@ -1,12 +1,12 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 
-export default class AuthorList extends React.Component {
+export default class CategoryList extends React.Component {
   render() {
     const posts = this.props.data.allMdx.edges
     return (
       <div>
-        <h1>Author: {this.props.pageContext.authorName}</h1>
+        <h1>category: {this.props.pageContext.categoryName}</h1>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.slug
           return (
@@ -22,18 +22,18 @@ export default class AuthorList extends React.Component {
   }
 }
 
-export const authorBlogListQuery = graphql`
-  query authorBlogListQuery($skip: Int!, $limit: Int!, $author: String!) {
+export const categoryBlogListQuery = graphql`
+  query categoryBlogListQuery($skip: Int!, $limit: Int!, $category: String!) {
     allMdx(
       sort: {fields: [frontmatter___date], order: DESC}
       limit: $limit
       skip: $skip
-      filter: {frontmatter: {author: {eq: $author}}}
+      filter: {frontmatter: {category: {eq: $category}}}
     ) {
       edges {
         node {
           frontmatter {
-            author
+            category
             date
             path
             title

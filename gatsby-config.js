@@ -7,10 +7,11 @@ module.exports = {
        {id: 'dan-lafleur', name: 'Dan Lafleur'},
      ],
      categories: [
+       {id: 'site-updates', name: 'Site Updates', hidden: true},
        {id: 'hiking-tips', name: 'Hiking Tips'},
-       {id: 'gear-reviews', name: 'Gear Reviews'},
+       {id: 'hiking-backpacking-gear-reviews', name: 'Gear Reviews'},
        {id: 'pacific-crest-trail', name: 'Pacific Crest Trail'},
-       {id: 'new-england-hiking', name: 'New England Hiking'},
+       {id: 'hiking-in-new-england', name: 'New England Hiking'},
        {id: 'international-hiking', name: 'International Hiking'},
      ],
   },

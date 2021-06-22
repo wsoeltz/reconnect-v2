@@ -12,6 +12,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         siteMetadata {
           authors {
             id
+            name
           }
           categories {
             id
@@ -74,8 +75,31 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           numPages: numAuthoredPages,
           currentPage: i + 1,
           author: author.id,
+          authorName: author.name,
         },
       })
     })
   }
+
+  // Create category-list pages
+  const categories = result.data.site.siteMetadata.categories;
+  for (let category of categories) {
+    const categoryPosts = posts.filter(d => d.node.frontmatter.category === category.id);
+    const numCategoryPages = Math.ceil(categoryPosts.length / postsPerPage)
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i ? `/category/${category.id}/page/${i + 1}` : `/category/${category.id}`,
+        component: path.resolve("./src/templates/category-page.js"),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages: numCategoryPages,
+          currentPage: i + 1,
+          category: category.id,
+          categoryName: category.name,
+        },
+      })
+    })
+  }
+
 }
