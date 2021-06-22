@@ -13,7 +13,6 @@ const Root = styled.div`
   background-position: center;
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
 
   @media (max-width: ${smallWidth}px) {
     position: relative;
@@ -28,16 +27,29 @@ const Featured = styled.h3`
   color: #fff;
   max-width: 200px;
   border-bottom: solid 1px #fff;
-  margin: 0 auto 30px;
+  margin: 0 auto 0;
   font-weight: 500;
   letter-spacing: 0.3px;
+  position: relative;
+  top: 20px;
 `;
 
 const Card = styled.div`
   margin-top: auto;
-  padding: 250px 5% 80px 5%;
+  padding: 0 5% 20px 5%;
   width: 100%;
-  background: linear-gradient(to bottom, transparent 0%, #222727 100%);
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -250px;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, #222727 100%);
+    z-index: -1;
+  }
 
   @media (max-width: ${smallWidth}px) {
     margin: 60px 20px 60px;
