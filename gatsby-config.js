@@ -2,6 +2,17 @@ module.exports = {
   siteMetadata: {
     title: "Reconnect.life",
      description: "Experience the world on your feet, not on your phone",
+     authors: [
+       {id: 'kyle-soeltz', name: 'Kyle Soeltz'},
+       {id: 'dan-lafleur', name: 'Dan Lafleur'},
+     ],
+     categories: [
+       {id: 'hiking-tips', name: 'Hiking Tips'},
+       {id: 'gear-reviews', name: 'Gear Reviews'},
+       {id: 'pacific-crest-trail', name: 'Pacific Crest Trail'},
+       {id: 'new-england-hiking', name: 'New England Hiking'},
+       {id: 'international-hiking', name: 'International Hiking'},
+     ],
   },
   plugins: [
     `gatsby-plugin-image`,
