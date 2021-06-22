@@ -119,7 +119,7 @@ export const pageQuery = graphql`
           }
           slug
           timeToRead
-          excerpt(truncate: true, pruneLength: 350)
+          excerpt(truncate: false, pruneLength: 350)
         }
       }
     }

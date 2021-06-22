@@ -6,7 +6,7 @@ import HorizontalCard from '../components/cards/HorizontalCard';
 export default class BlogList extends React.Component {
   render() {
     const posts = this.props.data.allMdx.edges
-  const { authors } = this.props.data.site.siteMetadata
+    const { authors } = this.props.data.site.siteMetadata
     return (
       <StandardContentLayout
         numPages={this.props.pageContext.numPages}
@@ -60,7 +60,7 @@ export const blogListQuery = graphql`
           }
           slug
           timeToRead
-          excerpt(truncate: true, pruneLength: 200)
+          excerpt(truncate: false, pruneLength: 200)
         }
       }
     }

@@ -73,6 +73,7 @@ const Excerpt = styled.p`
 `;
 
 const ReadMoreButton = styled(Link)`
+  white-space: nowrap;
 `;
 
 const VerticalCard = ({to, title, featuredImage, author, date, timeToRead, excerpt}) => {
