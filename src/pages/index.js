@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import BaseLayout from '../components/layouts/base'
 import VerticalCard from '../components/cards/VerticalCard';
 import FeaturedPost from '../components/cards/FeaturedPost';
+import Pagination from '../components/navigation/Pagination';
 import styled from 'styled-components';
 import {mobileWidth, smallWidth} from '../Utils';
 
@@ -44,7 +45,8 @@ const ColumnTitle = styled.h3`
 `;
 
 
-export default function Home({ data }) {
+export default function Home(props) {
+  const {data} = props;
   const { authors } = data.site.siteMetadata
   const posts = data.allMdx.edges;
   const featuredPost = posts[0].node;
@@ -65,7 +67,7 @@ export default function Home({ data }) {
         />
         <Column>
           <ColumnTitle>Older Posts</ColumnTitle>
-          {posts.filter((d, i) => i).map(({ node }) => {
+          {posts.filter((d, i) => i && i < 10).map(({ node }) => {
             const title = node.frontmatter.title || node.slug;
             const author = authors.find(d => d.id === node.frontmatter.author)
             return (
@@ -81,6 +83,11 @@ export default function Home({ data }) {
               />
             );
           })}
+          <Pagination
+            currentPage={1}
+            numPages={Math.ceil(posts.length / 10)}
+            rootSlug={''}
+          />
         </Column>
       </Root>
     </BaseLayout>
@@ -99,7 +106,7 @@ export const pageQuery = graphql`
     }
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC },
-      limit: 10
+      limit: 1000
     ) {
       edges {
         node {

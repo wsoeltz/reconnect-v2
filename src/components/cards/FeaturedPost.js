@@ -89,6 +89,7 @@ const EntryDetails = styled.div`
   font-style: italic;
   display: block;
   margin-bottom: 20px;
+  line-height: 1.5;
 
   @media (max-width: ${smallWidth}px) {
     color: #222727;
@@ -152,6 +153,8 @@ const FeaturedPost = ({to, title, featuredImage, author, date, timeToRead, excer
         </Title>
         <EntryDetails>
           {date.getMonth() + 1}.{date.getUTCDate()}.{date.getFullYear()} - {author}
+          <br />
+          {timeToRead} minute read
         </EntryDetails>
         <Excerpt>
           {excerpt}
