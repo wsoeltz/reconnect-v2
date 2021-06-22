@@ -2,6 +2,7 @@ import * as React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import ReactMarkdown from "react-markdown";
 import styled from 'styled-components';
+import BaseLayout from './base';
 
 const Figure = styled.figure`
   text-align: center;
@@ -54,9 +55,12 @@ const shortcodes = { img: Image, Figcaption, ProsAndCons }
 
 const PostLayout = (props) => {
   return (
-    <div>
+    <BaseLayout>
+      <h1>
+        {props.pageContext.frontmatter.title}
+      </h1>
       <MDXProvider components={shortcodes}>{props.children}</MDXProvider>
-    </div>
+    </BaseLayout>
   )
 }
 

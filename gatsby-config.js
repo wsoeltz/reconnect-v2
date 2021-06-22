@@ -44,5 +44,15 @@ module.exports = {
       },
       __key: "pages",
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `IBM Plex Sans\:400,400i,600`,
+          `Karma\:400,700`
+        ],
+        display: 'block'
+      }
+    }
   ],
 };

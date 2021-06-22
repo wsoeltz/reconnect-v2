@@ -1,12 +1,13 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import BaseLayout from '../components/layouts/base';
 
 export default class CategoryList extends React.Component {
   render() {
     const posts = this.props.data.allMdx.edges
     return (
-      <div>
-        <h1>category: {this.props.pageContext.categoryName}</h1>
+      <BaseLayout>
+        <h1>Category: {this.props.pageContext.categoryName}</h1>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.slug
           return (
@@ -17,7 +18,7 @@ export default class CategoryList extends React.Component {
             </div>
           );
         })}
-      </div>
+      </BaseLayout>
     )
   }
 }

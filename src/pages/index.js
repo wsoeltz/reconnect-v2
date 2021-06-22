@@ -1,12 +1,13 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import BaseLayout from '../components/layouts/base'
 
 export default function Home({ data }) {
   const { title, description } = data.site.siteMetadata
   const posts = data.allMdx.edges;
 
   return (
-    <div>
+    <BaseLayout>
       <h1>{title}</h1>
       <p>{description}</p>
 
@@ -22,7 +23,7 @@ export default function Home({ data }) {
           );
         })}
       </div>
-    </div>
+    </BaseLayout>
   )
 }
 
