@@ -8,12 +8,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     background-color: #FBFBFB;
+    color: #222727;
   }
 
   * {
     font-family: ${bodyFont};
     box-sizing: border-box;
-    color: #222727;
   }
 
   h1, h2, h3, h4, h5, h6 {
