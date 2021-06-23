@@ -6,6 +6,7 @@ import FeaturedPost from '../components/cards/FeaturedPost';
 import Pagination from '../components/navigation/Pagination';
 import styled from 'styled-components';
 import {mobileWidth, smallWidth} from '../Utils';
+import Meta from '../components/Meta';
 
 const Root = styled.div`
   width: 100%;
@@ -54,6 +55,9 @@ export default function Home(props) {
   const featuredAuthor = authors.find(d => d.id === featuredPost.frontmatter.author)
   return (
     <BaseLayout>
+      <Meta
+        description={"Experience the world on your feet, not on your phone. Read about hiking trips, gear, and tips."}
+      />
       <Root>
         <FeaturedPost
           key={featuredPost.slug}

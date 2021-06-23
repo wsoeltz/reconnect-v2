@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import StandardContentLayout from '../components/layouts/standard-content';
 import HorizontalCard from '../components/cards/HorizontalCard';
+import Meta from '../components/Meta';
 
 export default class AuthorList extends React.Component {
   render() {
@@ -14,6 +15,10 @@ export default class AuthorList extends React.Component {
         currentPage={this.props.pageContext.currentPage}
         rootSlug={'/author/' + this.props.pageContext.author}
       >
+        <Meta
+          title={author}
+          description={`Read posts by ${author} on Reconnect.life`}
+        />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.slug
           return (

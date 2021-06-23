@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import StandardContentLayout from '../components/layouts/standard-content';
 import HorizontalCard from '../components/cards/HorizontalCard';
+import Meta from '../components/Meta';
 
 export default class CategoryList extends React.Component {
   render() {
@@ -14,6 +15,9 @@ export default class CategoryList extends React.Component {
         currentPage={this.props.pageContext.currentPage}
         rootSlug={'/category/' + this.props.pageContext.category}
       >
+        <Meta
+          title={this.props.pageContext.categoryName}
+        />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.slug
           const author = authors.find(d => d.id === node.frontmatter.author)

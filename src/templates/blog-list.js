@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import StandardContentLayout from '../components/layouts/standard-content';
 import HorizontalCard from '../components/cards/HorizontalCard';
+import Meta from '../components/Meta';
 
 export default class BlogList extends React.Component {
   render() {
@@ -13,6 +14,7 @@ export default class BlogList extends React.Component {
         currentPage={this.props.pageContext.currentPage}
         rootSlug={''}
       >
+        <Meta />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.slug
           const author = authors.find(d => d.id === node.frontmatter.author)

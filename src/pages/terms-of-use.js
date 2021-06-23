@@ -1,11 +1,15 @@
 import React from "react"
 import StandardContentLayout from '../components/layouts/standard-content';
+import Meta from '../components/Meta';
 
 export default function WhyReconnect() {
   return (
     <StandardContentLayout
       title={'Terms of Use'}
     >
+      <Meta
+        title={'Terms of Use'}
+      />
     <p><strong>Disclaimer</strong><br />
       The content of this blog is provided for general educational and informational purposes only. All forms of outdoor recreation have a high risk and can be potentially dangerous and/or hazardous. It is the responsibility of the users of this website to learn the necessary skills, have the proper physical conditioning, and carry the correct gear, when embarking on any outdoor activity. The information on this blog is not to be considered a guide and the users of this blog must assume full responsibility for their actions and personal safety.
       </p>

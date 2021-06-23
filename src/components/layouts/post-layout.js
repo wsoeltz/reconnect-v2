@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import BaseLayout from './base';
 import {Link} from 'gatsby';
 import RecentPosts from '../navigation/RecentPosts';
+import Meta from '../Meta';
 
 const Header = styled.header`
   padding-top: 50vh;
@@ -49,7 +50,7 @@ const Title = styled.h1`
   }
 `;
 
-const Meta = styled.p`
+const EntryDetails = styled.p`
   line-height: 1.6;
   margin: 0 0 2.5rem;
 `;
@@ -83,6 +84,10 @@ const FigcaptionEl = styled.figcaption`
   }
 `;
 
+const ProConCell = styled.td`
+  vertical-align: top;
+`;
+
 const Image = (props) => {
   return (
     <Figure>
@@ -93,7 +98,7 @@ const Image = (props) => {
 
 const ProsAndCons = ({pros, cons}) => {
   return (
-    <table>
+    <table style={{width: '100%'}}>
       <thead>
         <tr>
           <th><strong>Pros</strong></th>
@@ -102,16 +107,16 @@ const ProsAndCons = ({pros, cons}) => {
       </thead>
       <tbody>
         <tr>
-          <td style={{width: '50%'}}>
+          <ProConCell style={{width: '50%'}}>
             <ul>
               {pros.map(d => <li key={d}>{d}</li>)}
             </ul>
-          </td>
-          <td>
+          </ProConCell>
+          <ProConCell>
             <ul>
               {cons.map(d => <li key={d}>{d}</li>)}
             </ul>
-          </td>
+          </ProConCell>
         </tr>
       </tbody>
     </table>
@@ -139,6 +144,10 @@ const PostLayout = (props) => {
 
   return (
     <BaseLayout>
+      <Meta
+        title={context.title}
+        featuredImage={context.featuredImage}
+      />
       <Header style={{backgroundImage: `url("/images/${context.featuredImage}")`}}>
         <Title>
           {context.title}
@@ -146,12 +155,12 @@ const PostLayout = (props) => {
       </Header>
       <Content>
         <Entry>
-          <Meta>
+          <EntryDetails>
             <em>{new Date(context.date).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
             <br />
             By <Link to={'/author/' + author.id}>{author.name}</Link> in <Link to={'/category/' + category.id}>{category.name}</Link>
             </em>
-          </Meta>
+          </EntryDetails>
           <MDXProvider components={shortcodes}>{props.children}</MDXProvider>
         </Entry>
         {recentPosts}
