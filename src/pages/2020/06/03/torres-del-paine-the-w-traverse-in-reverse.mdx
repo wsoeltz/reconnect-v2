@@ -7,6 +7,10 @@ featuredImage: "20200219_140618.jpeg"
 date: 2020-06-03
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
  The Patagonia region is home to numerous national parks throughout both Chile and Argentia. At 150 thousand guests each year, the most visited of them all is Torres del Paine. Compare that number to the 500k average yearly visitors at Peru’s Machu Picchu or California’s Yosemite National Park with nearly 5 million people/year, and even on the busiest trails in Torres del Paine you will still find space to contemplate the quiet beauty of nature.
 
 ![](torres-del-paine-vertical-375x500.png)
@@ -184,4 +188,43 @@ The environment was drier than what we encountered in the other areas of the par
  The trip back to the states was relatively smooth. We had the same issue in our New York to Boston transfer as we did on the way down - the tickets sold to us were completely different than what was actually operating. They quickly put us on the next flight and we were back home, already yearning for the next adventure.
 
 ![](20200221_211823-500x375.jpg)
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "international-hiking" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

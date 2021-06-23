@@ -7,6 +7,10 @@ featuredImage: "bushwhacking-plb-compressed.jpeg"
 date: 2018-02-07
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 Whether it be a Personal Locator Beacon (PLB) or a Satellite Messenger, an emergency transponder is something everyone spending a significant time in the wilderness should carry. No matter how experienced you are, something could happen outside of your control that leaves you in need of immediate medical help. It doesn’t need to be for yourself either, as it could be someone in your group or someone you come across on the trail who needs help.
 
 ![Whiteout on Mt Washington](whiteout-compressed-500x375.jpg)
@@ -66,4 +70,43 @@ This is the do-it-all Satellite Messenger. It is the most expensive up front, bu
 [![Spot Gen 3](spot-gen-3-compressed.jpg)](https://www.amazon.com/SPOT-Satellite-GPS-Messenger-Orange/dp/B00C8S8S4W/ref=as_li_ss_tl?ie=UTF8&qid=1521141611&sr=8-2&keywords=spot+gen+3&linkCode=ll1&tag=reconnectlife-20&linkId=bae23b38640751a2e53f765703f24bea)
 
 The Spot Gen3 is probably the most well known emergency system. It is the cheapest upfront, and provides a small selection of extra features. It allows up to three customizable messages that can be sent to preset contacts of your choosing. The Spot Gen3 also allows for GPS tracking that your contacts can view, with more expensive subscriptions allowing for more precise tracking.
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "hiking-tips" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

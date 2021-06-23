@@ -7,6 +7,10 @@ featuredImage: "PSX_20180426_202454.jpeg"
 date: 2018-04-27
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 As we looked at the map in preparation for our ascent up Mount San Jacinto, we planned three distinct days - an up day, a down day, and a flat day. The up day was going to be from Idyllwild up to the summit of San Jacinto, followed by the down day as we would make our way to the desert floor, and than finally the flat day as we crossed the desert to the next mountain range. We were excited at the idea that each day would be a little easier then the last.
 
 Boy were we wrong.
@@ -124,4 +128,43 @@ It was a cool little tourist town with lots of trinket shops and restaurants. We
 <Figcaption>On the road again.</Figcaption>
 
 I want to again thank everyone who has donated to Hike For Mental Health! As of reaching Big Bear Lake, I am just over 10% done with the hike, yet we've already reached 75% of the fundraising goal! If you haven't donated and would like to, you can do so [here](https://secure.hikeformentalhealth.org/np/clients/hike/campaign.jsp?campaign=102&fundraiser=8262&).
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "pacific-crest-trail" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

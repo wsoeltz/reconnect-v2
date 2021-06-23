@@ -7,6 +7,10 @@ featuredImage: "all-gear-desert.jpeg"
 date: 2018-03-30
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 As day zero comes closer and closer, I have finally put together my complete gear list. The first 700 miles of the Pacific Crest Trail offers a [desert climate](https://en.wikipedia.org/wiki/Mojave_Desert) interspersed with [10,000 foot tall, snow covered peaks](https://en.wikipedia.org/wiki/San_Jacinto_Peak). The combination of unrelenting sun and long waterless stretches mixed with the occasional high altitude trekking through snow offers an interesting set of gear selection challenges.
 
 All of the gear below is subject to change as the hike goes on and the climates change. I will be posting updates to my gear list as I enter each new section of the trail (desert, Sierra Nevada, Northern California, Oregon, Washington). If you want to follow along with my trip, please [subscribe](https://life.us17.list-manage.com/subscribe/post?u=af8860d0aaaa7378ddb4b27c8&id=45a85b2a7b) for email updates!
@@ -190,4 +194,43 @@ Lastly I have a handful of other items that don’t really fall into any other c
 <Figcaption>Using the Thermarest Neoair Pump Sack to inflate my sleeping pad will help keep mold from growing inside of the pad and make it a faster process when I am tired after a day of hiking.</Figcaption>
 
 So that is what I will be brining for the start of my trip. My base weight comes out to about 17.5 pounds. If you’re interested in the weights of all the items, you can see them on [lighterpacks](https://lighterpack.com/r/d6xzpo). If you want follow me along my trip, please subscribe at the bottom of your window. And I am still [raising money](/2018/03/22/pct-update-zero/) for Hike For Mental Health and am looking for [donations](https://secure.hikeformentalhealth.org/np/clients/hike/campaign.jsp?campaign=102&fundraiser=8262&) to reach the ultimate goal of $1 per mile for a total of $2660!
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "pacific-crest-trail" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

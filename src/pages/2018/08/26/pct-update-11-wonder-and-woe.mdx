@@ -7,6 +7,10 @@ featuredImage: "PSX_20180825_193316.jpeg"
 date: 2018-08-26
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 Our speed continued to be fast and when we couldn't up the pace any further we pushed the time instead. Most mornings we would be hiking around 6:30AM, and we would go until 8, sometimes even 9 at night. It took over 100 days to hike through California and we were determined to do Oregon in just around twenty. Although our mindset was that we were near the end, we still had over 700 miles and a month of continuous hiking to go. We had to just keep taking it one day at a time, the rest we needed we would come soon enough. 
 
 ![](PSX_20180823_114514-500x375.jpg)
@@ -160,4 +164,43 @@ It had been one of the nicest days on the trail in awhile and had me really enjo
 ![](PSX_20180825_084907-500x375.jpg)
 
 <Figcaption>I may complain from time to time but it has been an amazing journey so far.</Figcaption>
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "pacific-crest-trail" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

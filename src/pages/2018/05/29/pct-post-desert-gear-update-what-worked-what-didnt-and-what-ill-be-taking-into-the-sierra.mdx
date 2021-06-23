@@ -7,6 +7,10 @@ featuredImage: "PSX_20180529_124832.jpeg"
 date: 2018-05-29
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 With the desert section behind me I feel it is a good time to look back at all of the gear changes that took place over that 700 miles. There were some pieces that shined greater than expected and others that wound up complete duds. Now that I have a greater understanding of what works for me, I will also be making some adjustments as I move forward into the Sierra Nevada. There is also a handful of additional items I will need to prepare for the terrain and wildlife of this coming section.
 
 ![](PSX_20180529_125022-500x375.jpg)
@@ -132,4 +136,43 @@ Due to the increased water content from the snow, I will no longer be in the bug
 <Figcaption>The [BV500](https://www.rei.com/product/768902/bearvault-bv500-food-container).</Figcaption>
 
 For a complete break down of all the gear and it's weight, view my complete [Sierra Nevada gear list](https://lighterpack.com/r/ewatn4).
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "pacific-crest-trail" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

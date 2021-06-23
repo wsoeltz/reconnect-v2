@@ -7,6 +7,10 @@ featuredImage: "PSX_20180418_203402.jpeg"
 date: 2018-04-19
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 The day after I slept in a kitchen shed we hitch hiked back into the desert. We were picked up by a young couple, Anwar and Claudia, who seemed even happier to be driving us than we were to be getting a ride. They asked all about the PCT- where it went, how long we had been out there, the gear we needed, and more. Anwar shared with us a map of destinations he plans on checking out throughout the country since his recent release from the military. After hearing about our trek through the Anza-Borrego desert, they wanted to hike it that day. They were a couple out to find adventure with no time limit or boundaries holding them back.
 
 They dropped us off right where we left the day before. We thanked them for the ride and they thanked us for the inspiration. Anwar and Claudia drove off and we were back on the trail again.
@@ -102,4 +106,43 @@ Idyllwild was a cool little town, on the weekend it was buzzing with people goin
 ![Mount San Jacinto](PSX_20180418_202301-500x375.jpg)
 
 <Figcaption>Mount San Jacinto stands at over 10,880 feet above sea level, and from the top you look straight down at the desert floor at 170 feet above sea level.</Figcaption>
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "pacific-crest-trail" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

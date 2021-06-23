@@ -7,6 +7,10 @@ featuredImage: "snow-covered-peak.jpeg"
 date: 2018-03-15
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 The [MSR Lightning Ascent snowshoes](https://www.amazon.com/MSR-5608-Lightning-Snowshoe-22-Inch/dp/B00LFJNHRI/ref=as_li_ss_tl?ie=UTF8&qid=1521143105&sr=8-3&keywords=msr+lightning+ascent+snowshoes&linkCode=ll1&tag=reconnectlife-20&linkId=efef4ddf18a5b35db45e67d785bf8f3b) are a sturdy yet lightweight snowshoe that provides ample flotation and an aggressive grip. The outer ring of the snowshoe is rigid with crampon-like teeth that provides traction beyond that provided by the standard crampon below the foot. The flotation itself is comprised of a lightweight rubber webbing material that stretches across the shoe.
 
 ![MSR Lightning Ascent Snowshoes](msr-lightning-ascent-500x375.jpg "MSR Lightning Ascent Snowshoes")
@@ -58,4 +62,43 @@ The [MSR Lightning Ascents](https://www.amazon.com/MSR-5608-Lightning-Snowshoe-2
 ## Summary
 
 <ProsAndCons  pros={['High flotation', 'Great traction', 'Durable', 'Heel lifts are awesome', 'Lightweight for amount of flotation']} cons={['Expensive', 'Straps are difficult to operate when cold', 'Straps uncomfortable in anything other than a thick boot', 'Sticks will occasionally get caught in holes']}  />
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "hiking-backpacking-gear-reviews" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

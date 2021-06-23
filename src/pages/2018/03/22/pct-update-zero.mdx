@@ -7,6 +7,10 @@ featuredImage: "sunset-from-plane.jpeg"
 date: 2018-03-22
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 As I write this it is the last full day I will spend in this apartment. Next week will be the last week at my job. Two weeks after that I’ll be saying goodbye to my family and my girlfriend for 6 months as I begin my hike from Mexico to Canada. These are the parts of my life that I’m giving up or putting on hold so that I can live out a lifelong dream of completing a thru hike.
 
 ![Kyle and Jessie on Mount Tecumseh](kyle-and-jessie-mt-tecumseh-500x500.jpg)
@@ -60,4 +64,43 @@ I will be posting updates about my trip here on my blog, so check back often or 
 ![New England Hiking](new-england-hiking.jpg)
 
 <Figcaption>See you in 6 months New England!</Figcaption>
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "pacific-crest-trail" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

@@ -7,6 +7,10 @@ featuredImage: "solomon-speed-cross-4-cover.jpg"
 date: 2018-01-18
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 The [Salomon Speed Cross 4](https://www.amazon.com/Salomon-Speedcross-Runner-Everglade-Sulphur/dp/B01HD6279K/ref=as_li_ss_tl?s=apparel&ie=UTF8&qid=1521139613&sr=1-1-spons&nodeID=7141123011&psd=1&keywords=salomon+speedcross+4&psc=1&linkCode=ll1&tag=reconnectlife-20&linkId=19939ce9838b8844b2d09a023426f00a) is a seriously light trail running shoe with a lot of grip. I have used them for trail running, day hiking, and backpacking from mid-spring to mid-fall. They are breathable, water resistant, and their traction is designed for everything from mud to snow.
 
 ## Performance
@@ -48,4 +52,43 @@ If you plan to use these shoes in the shoulder seasons, the lightweight breathab
 [![Salomon Speed Cross 4](solomon-speed-cross-product-500x286.jpg)](https://www.amazon.com/Salomon-Speedcross-Runner-Everglade-Sulphur/dp/B01HD6279K/ref=as_li_ss_tl?s=apparel&ie=UTF8&qid=1521139613&sr=1-1-spons&nodeID=7141123011&psd=1&keywords=salomon+speedcross+4&psc=1&linkCode=ll1&tag=reconnectlife-20&linkId=19939ce9838b8844b2d09a023426f00a)
 
 <ProsAndCons  pros={['Great traction', 'Decent job of keeping out debris', 'Dries easily when wet', 'Speed laces are great', 'Really lightweight', 'Breathable']} cons={['Will burn up quickly on pavement', 'Very narrow fit until broken in', 'Not very water resistant']}  />
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "hiking-backpacking-gear-reviews" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

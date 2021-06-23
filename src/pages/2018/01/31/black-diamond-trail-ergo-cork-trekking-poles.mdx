@@ -7,6 +7,10 @@ featuredImage: "walking_with_black_diamond_ergo_cork_poles_compressed.jpeg"
 date: 2018-01-31
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 It wasn’t until I began winter hiking that I understood how great Trekking poles were. Before I had always wondered what I needed them for- I had never had a problem getting up and down mountains without them, how would using them make any difference? But hiking in the snow is a totally different game, and after embracing them they’ve now made it into my all-season gear essentials. Between the uphill advantages and the downhill knee-saving, I would highly recommend adding poles to your kit if you haven’t already. And my trekking pole of choice right now is the [Black Diamond Trail Ergo Cork Trekking Poles](https://www.amazon.com/Trail-Ergo-Cork-Walking-70-140cm/dp/B00GZPYWFS/ref=as_li_ss_tl?ie=UTF8&qid=1521140917&sr=8-3&keywords=black+diamond+trail+ergo+cork+trekking+poles&linkCode=ll1&tag=reconnectlife-20&linkId=fee10b2da2d0d1c5907b1019115699fb).
 
 ## Performance
@@ -54,4 +58,43 @@ Additionally the cork absorbs moisture, meaning your grip will always be strong 
 [![Black Diamond Ergo Cork Poles](trail-ergo-cork-poles-product-189x500.jpg)](https://www.amazon.com/Trail-Ergo-Cork-Walking-70-140cm/dp/B00GZPYWFS/ref=as_li_ss_tl?ie=UTF8&qid=1521140917&sr=8-3&keywords=black+diamond+trail+ergo+cork+trekking+poles&linkCode=ll1&tag=reconnectlife-20&linkId=fee10b2da2d0d1c5907b1019115699fb)
 
 <ProsAndCons  pros={['Great stability and performance', 'Easy to adjust height', 'Highly durable, doesn’t break easy', 'Cork handles are the best kind of handles']} cons={['FlintLock doesn’t hold the poles height in place without manually tightening the screws', 'On the more expensive side']}  />
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "hiking-backpacking-gear-reviews" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

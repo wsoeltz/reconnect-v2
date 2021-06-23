@@ -7,6 +7,10 @@ featuredImage: "welcome-cover.jpeg"
 date: 2018-01-09
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 My name is Kyle Soeltz. I’m an avid hiker, skier, climber, and general outdoors enthusiast. I created this blog to help inspire and provide information for those looking to reconnect with the world and not with their wi-fi. In everyday life I am a designer and developer, and this blog is my way of using my skills to push that vision forward.
 
 ![Kyle Soeltz](kyle-soeltz-on-pawtuckaway-500x500.jpg)
@@ -37,4 +41,43 @@ Studies have found that the average person will spend over [5 years on social me
 We all only have so much time on this Earth, don’t spend it living through a screen. Hike a mountain. Go out into the town with those close to you. Reconnect with nature, with people, with the world.
 
 ![Boardwalk along mountain trail](welcome-on-your-feet-500x500.jpg)
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "site-updates" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

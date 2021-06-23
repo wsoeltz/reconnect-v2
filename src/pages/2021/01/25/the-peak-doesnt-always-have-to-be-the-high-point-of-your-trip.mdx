@@ -7,6 +7,10 @@ featuredImage: "Lookout.jpeg"
 date: 2021-01-25
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 With winter in full swing and the pandemic still hitting hard, it is more difficult than ever to get out and still distance yourself from others. Whether you are trying to stay local or just avoid the crowds of new hikers, it can be difficult to know where to go.
 
 Using the distance feature in [wilderlist.app](https://www.wilderlist.app/) my friend and I were able to find a nice remote area to discover on the western Massachusetts border, about the same driving distance as the White Mountains are from our Boston homes.
@@ -36,4 +40,43 @@ The peak of [Brace Mountain, NY](https://www.wilderlist.app/mountain/5f04d221676
 While it was not the most difficult hike and the beauty was more subtle, it did offer plenty of New England charm and it is always good to get out into the quietness of the woods.
 
 ![](Alander-Mountain-MA-2231ft-500x375.jpg)
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "hiking-in-new-england" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

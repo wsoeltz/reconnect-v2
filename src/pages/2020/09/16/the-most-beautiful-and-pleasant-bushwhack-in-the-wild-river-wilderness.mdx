@@ -7,6 +7,10 @@ featuredImage: "2009-Wild-River-West-Bald-Face2-compressed.jpeg"
 date: 2020-09-16
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
  This summer has been all about [2 day loops](/2020/08/14/creating-a-vt-4k-loop-escaping-the-nh-crowds-and-stumbling-on-some-stinging-nettle/) for my friend Kyle and I. Kyle had the idea to head up to the Wild River Wilderness where he spent several years working as a cook at AMC’s Cold River Camp. It’s an area he calls the “Hidden Gem of the White Mountains”. I had never been so I was more than eager to check out a new area of the White Mountains. 
 
 ![](2009-Wil-River-North-Bald-Face-500x375.jpg)
@@ -78,4 +82,43 @@ date: 2020-09-16
  My only hesitation to recommend this area is so I can leave it for myself!
 
 ![](2009-Wild-River-Heading-Home-500x375.jpg)
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "hiking-in-new-england" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

@@ -7,6 +7,10 @@ featuredImage: "PSX_20180925_153546.jpeg"
 date: 2018-09-25
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 It's day 151\. I shake the ice off of my tent as I peel it open to watch the last sunrise I will see on the Pacific Crest Trail. The air is cold and still, I lie in my sleeping bag dreading the thought of putting on my pants and shoes that are still saturated from the storm the night before. I'm not sure where Dennis is, we were separated by the rain and sleet that had pounded us. I assume he is camping ahead of me and did not see my tent set up slightly off of the trail. Canada is only 11 miles away, I'll be done with the entire hike before lunch. I hope I am able to catch up with him so we can hike the last few miles together. For the first time in over 5 months, I do some push-ups to get my body temperature up before putting on my wet, cold clothes and begin hiking the end.
 
 ![](PSX_20180925_122748-500x375.jpg)
@@ -246,4 +250,43 @@ I am already feeling nostalgic of the trail. Its beauty and its adventure. But I
 ![](PSX_20180925_144119-500x375.jpg)
 
 <Figcaption>I may be done with the Pacific Crest Trail, but it will always be a part of me now no matter where I am.</Figcaption>
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "pacific-crest-trail" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

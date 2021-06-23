@@ -3,7 +3,8 @@ import { MDXProvider } from "@mdx-js/react"
 import ReactMarkdown from "react-markdown";
 import styled from 'styled-components';
 import BaseLayout from './base';
-import {Link, useStaticQuery, graphql} from 'gatsby';
+import {Link} from 'gatsby';
+import RecentPosts from '../navigation/RecentPosts';
 
 const Header = styled.header`
   padding-top: 50vh;
@@ -28,6 +29,7 @@ const Content = styled.main`
 
 const Entry = styled.article`
   max-width: 680px;
+  margin-bottom: 4rem;
 `;
 
 const Title = styled.h1`
@@ -39,6 +41,7 @@ const Title = styled.h1`
   top: 1px;
   background: linear-gradient(to bottom, transparent 0%, #fbfbfb 100%);
   font-weight: 500;
+  line-height: 1.1;
 
   @media (max-width: 750px) {
     font-size: 27px;
@@ -121,26 +124,18 @@ const shortcodes = { img: Image, Figcaption, ProsAndCons }
 
 const PostLayout = (props) => {
   const context = props.pageContext.frontmatter;
-
-  const data = useStaticQuery(graphql`
-    query PostMetaQuery {
-      site {
-        siteMetadata {
-          authors {
-            id
-            name
-          }
-          categories {
-            id
-            name
-          }
-        }
-      }
-    }
-  `)
+  const data = props.data;
 
   const author = data.site.siteMetadata.authors.find(d => d.id === context.author);
   const category = data.site.siteMetadata.categories.find(d => d.id === context.category);
+
+  const otherPosts = data.allMdx.edges.filter(d => d.node.frontmatter.path !== context.path);
+  const recentPosts = otherPosts.length ? (
+    <RecentPosts
+      posts={otherPosts}
+      authors={data.site.siteMetadata.authors}
+    />
+  ) : null;
 
   return (
     <BaseLayout>
@@ -159,6 +154,7 @@ const PostLayout = (props) => {
           </Meta>
           <MDXProvider components={shortcodes}>{props.children}</MDXProvider>
         </Entry>
+        {recentPosts}
       </Content>
     </BaseLayout>
   )

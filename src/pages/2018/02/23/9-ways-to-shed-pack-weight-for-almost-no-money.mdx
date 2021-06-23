@@ -7,6 +7,10 @@ featuredImage: "hiker-pointing-into-distance-compressed.jpeg"
 date: 2018-02-23
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 Spending hundreds of dollars on new sleeping bags and backpacks is one way to save large amounts of pack weight, but it’s not the only way. There are a lot of small things you can do as well that will chip that base weight down, and a lot of them can be done on the cheap. What may seem like only savings of less than an ounce on it’s own will roll up to much more when combined with other weight saving techniques.
 
 ## 1) Cut the labels off your clothes and gear
@@ -104,4 +108,43 @@ If you’re carrying a [Sawyer Squeeze](https://www.amazon.com/Sawyer-Products-S
 ## 2lbs of total weight savings
 
 Doing all of these seemingly small things will net you 927 grams or a whole 2 pounds of savings. That’s like carrying a second tent or three extra [JetBoils](https://www.amazon.com/Flash-Personal-Cooking-System-Carbon/dp/B002N18PHO/ref=as_li_ss_tl?s=sporting-goods&ie=UTF8&qid=1521142553&sr=1-3&keywords=jetboil&linkCode=ll1&tag=reconnectlife-20&linkId=c88c45e087f8a5ef4143d721ee8566ce)! Now you can enjoy the extra lightness on your back, or if being as lightweight as possible isn’t your goal, enjoy the extra space for some luxury items.
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "hiking-tips" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

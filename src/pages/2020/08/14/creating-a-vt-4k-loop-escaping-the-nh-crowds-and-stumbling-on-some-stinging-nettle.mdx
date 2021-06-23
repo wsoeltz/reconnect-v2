@@ -7,6 +7,10 @@ featuredImage: "PSX_20200813_180635-small.jpeg"
 date: 2020-08-14
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 **Route:** Long Trail to Mt Pico &gt; South on Long Trail to Killington &gt; Bushwhack to Mendon &gt; Herd path to road &gt; Catamount Cross-Country ski trail back to car.
 
 ![](bti5j5fjg0h51-500x282.png)
@@ -68,4 +72,43 @@ date: 2020-08-14
  A few more hills and plenty more nettle, we finally made it to the car, rinsed off at the river, and headed home. What started out as the perfect hike, quickly turned to discomfort, but it will always be one of our more memorable expeditions.
 
  You can check out Kyle’s hiking report and suggested trail routes [on Wilderlist](https://www.wilderlist.app/mountain/5d8cb3675a452f00176cf800).
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "hiking-in-new-england" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

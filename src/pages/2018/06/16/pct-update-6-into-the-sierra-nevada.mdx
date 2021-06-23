@@ -7,6 +7,10 @@ featuredImage: "PSX_20180616_082116.jpeg"
 date: 2018-06-16
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 It has been close to 2 weeks since any sign of civilization. Even longer than that since we were last in a real town, and by real town I mean a place that doesn't run purely on generators as there is no electricity grid for them to connect to. For nearly 2 weeks now we have been hiking through the most continuously remote wilderness area in the entire lower 48 states. Through crystal clear rivers, snow capped mountain peaks, and vibrantly green forests, we have made our way through the Sierra Nevada.
 
 ![](PSX_20180616_082758-500x375.jpg)
@@ -252,4 +256,43 @@ We descended down and into forests once more. As we made our way to our campsite
 These past 2 weeks had felt like a month. Everything about it was intense- the uphill, the downhill, the views, the water, the snow, everything. Hiking through and immersing ourselves in this untamed wilderness was truly a once in a lifetime experience. It was hard, very hard, and while we're both ready for some easier terrain, we will always remember our time through the High Sierra.
 
 ![](PSX_20180616_081837-500x375.jpg)
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "pacific-crest-trail" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

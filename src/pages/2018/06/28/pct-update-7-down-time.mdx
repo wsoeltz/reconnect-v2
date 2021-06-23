@@ -7,6 +7,10 @@ featuredImage: "PSX_20180628_095836.jpeg"
 date: 2018-06-28
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 We were out of food and toilet paper, our extra batteries were all dead and our phones running on their last drops. Twelve straight days through the High Sierra had completely depleted our resources and our bodies, we were in need of some downtime.
 
 ![](PSX_20180627_135044-500x375.jpg)
@@ -158,4 +162,43 @@ As we got closer and closer to our destination, we could see the end of the Sier
 I walk a man-made trail that I really can't deviate from. I sleep in a tent engineered out of the lightest weight materials. I eat food that has been farmed and processed for maximum hiking convenience. I am not one with nature, I am merely an extended visitor. An observer to all it's beauty and power.
 
 ![](PSX_20180628_095658-500x375.jpg)
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "pacific-crest-trail" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

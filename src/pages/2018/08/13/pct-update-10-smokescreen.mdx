@@ -7,6 +7,10 @@ featuredImage: "20180802_181913-PANO.jpeg"
 date: 2018-08-13
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 On another scorchingly hot afternoon I made my way to the last town of California all alone. In just a few more days I would be crossing into Oregon, the first state line I would walk over since I started at the Mexican border 4 months earlier.
 
 ![](PSX_20180811_055303-500x375.jpg)
@@ -178,4 +182,43 @@ The weather wasn't the only motivation to go faster. I wanted more time with my 
 ![](PSX_20180812_142933-500x375.jpg)
 
 <Figcaption>1900 down, a measly 750 to go!</Figcaption>
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "pacific-crest-trail" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

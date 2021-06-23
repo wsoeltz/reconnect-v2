@@ -7,6 +7,10 @@ featuredImage: "passaconway-abandoned-trail.jpeg"
 date: 2018-02-14
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 **Miles:**12.3
 
 **Elevation Gain:** 3763’
@@ -78,4 +82,43 @@ date: 2018-02-14
 ![The Downes Brook Trail](downes-brook-trail-442x500.jpg)
 
 <Figcaption>Heading back out along the Downes Brook Trail</Figcaption>
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "hiking-in-new-england" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

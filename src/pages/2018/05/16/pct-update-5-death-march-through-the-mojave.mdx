@@ -7,6 +7,10 @@ featuredImage: "PSX_20180515_142207.jpeg"
 date: 2018-05-16
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 In the middle of the blistering heat and barren landscapes sits a place with shade, running water, and even air conditioning. Run by a couple of "trail angels" out of their own home is Hiker Heaven, and a heaven it is indeed. They have yurts setup with everything from hangout spaces to computer rooms. They do your laundry for you and act as a psuedo post office, receiving and sending mail for hikers. They have a shuttle to ferry hikers in and out of town, offer showers, an air conditioned guest house, and plenty of space to setup a tent for the night or three. And they do it all for free out of the kindness of their heart. 
 
 ![](PSX_20180515_125646-500x375.jpg)
@@ -140,4 +144,43 @@ It wasn't long before a nice couple pulled over to drive me into town. As we dro
 ![](PSX_20180515_140428-1-500x375.jpg)
 
 <Figcaption>I'll be back.</Figcaption>
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "pacific-crest-trail" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

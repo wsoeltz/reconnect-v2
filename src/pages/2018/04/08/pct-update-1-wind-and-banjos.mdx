@@ -7,6 +7,10 @@ featuredImage: "PSX_20180408_081817.jpeg"
 date: 2018-04-08
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 It is the fifth night of my hike and I have given up on sleeping for the night. The point at which I gave up is after my tent collapsed on me twice due to the intensity of the winds. And it's only 10:30, it's probably going to happen again. There's a saying that thru hikers go by - "embrace the suck." Meaning when the shit hits the fan, you still have to find the positive. In this case since I know I won't be sleeping, I now have all this time to reflect and write about the beginning of my journey. 
 
 ![](PSX_20180408_092040-500x378.jpg)
@@ -98,4 +102,43 @@ Of course things don't always go as planned. As we started looking around for a 
 ## Hike For Mental Health
 
 Lastly I want to thank everyone who has donated to my Hike For Mental Health page! I haven't even been on the trail a week and we're over 50% to the goal. If you haven't donated and would like to, you can do so [here](https://secure.hikeformentalhealth.org/np/clients/hike/campaign.jsp?campaign=102&fundraiser=8262&). And if you'd like to follow my trip, sign up for email updates in the bottom bar of the page!
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "pacific-crest-trail" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 

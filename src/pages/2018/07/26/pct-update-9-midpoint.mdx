@@ -7,6 +7,10 @@ featuredImage: "PSX_20180724_204400.jpeg"
 date: 2018-07-26
 ---
 
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
 The climb out of Belden was steep and hot, a precursor for what was to come. Across the valley we could see lush pine forests providing shade and shelter for the creatures and visitors that passed below. But where we were was a burn zone. The charred gray remains of trees stood amongst small chaparral bushes, reminding us of the shade that was once there and taunting us as we instead were subjected to the blistering heat of the mid afternoon sun.
 
 ![](PSX_20180723_204241-500x375.jpg)
@@ -178,4 +182,43 @@ For the second time on this trip we said goodbye. He hitched into a nearby town,
 I've come to realize why it took so long for this trip to feel like a thru hike vs just an extended backpacking trip. The missing ingredient was pain, both physical and mental. A backpacking trip is an outdoor vacation. It's all fun, pushing your body and seeing some amazing sights. But a thru hike is a challenge, a life experience. Once the shine wears off, the pain and emotions start to set in. It's in that fight to push through that pain and keep going all the way to the end that makes this an adventure of a lifetime and not just an extended vacation.
 
 ![](PSX_20180726_094128-500x375.jpg)
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "pacific-crest-trail" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
 
