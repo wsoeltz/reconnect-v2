@@ -1,28 +1,39 @@
 module.exports = {
   siteMetadata: {
     title: "Reconnect.life",
-     description: "Experience the world on your feet, not on your phone",
-     authors: [
-       {id: 'kyle-soeltz', name: 'Kyle Soeltz'},
-       {id: 'dan-lafleur', name: 'Dan Lafleur'},
-     ],
-     categories: [
-       {id: 'site-updates', name: 'Site Updates', hidden: true},
-       {id: 'hiking-tips', name: 'Hiking Tips'},
-       {id: 'hiking-backpacking-gear-reviews', name: 'Gear Reviews'},
-       {id: 'pacific-crest-trail', name: 'Pacific Crest Trail'},
-       {id: 'hiking-in-new-england', name: 'New England Hiking'},
-       {id: 'international-hiking', name: 'International Hiking'},
-     ],
+    description: "Experience the world on your feet, not on your phone",
+    siteUrl: `https://reconnect.life`,
+    authors: [
+      {id: 'kyle-soeltz', name: 'Kyle Soeltz'},
+      {id: 'dan-lafleur', name: 'Dan Lafleur'},
+    ],
+    categories: [
+      {id: 'site-updates', name: 'Site Updates', hidden: true},
+      {id: 'hiking-tips', name: 'Hiking Tips'},
+      {id: 'hiking-backpacking-gear-reviews', name: 'Gear Reviews'},
+      {id: 'pacific-crest-trail', name: 'Pacific Crest Trail'},
+      {id: 'hiking-in-new-england', name: 'New England Hiking'},
+      {id: 'international-hiking', name: 'International Hiking'},
+    ],
   },
   plugins: [
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-gatsby-cloud",
-    'gatsby-transformer-remark',
+    "gatsby-transformer-remark",
     "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        serialize: ({ path }) => {
+          return {
+            url: path,
+          }
+        },
+      },
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
