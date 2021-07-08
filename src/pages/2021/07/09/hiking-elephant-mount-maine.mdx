@@ -1,0 +1,82 @@
+---
+title: "Hiking Elephant Mountain, Maine"
+path: "/2021/07/09/hiking-elephant-mount-maine/"
+author: "kyle-soeltz"
+category: "hiking-in-new-england"
+featuredImage: "elephant-mtn-logging-road-featured.jpg"
+date: 2021-07-09
+---
+
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
+Sitting at 3773ft, [Elephant Mountain](https://www.wilderlist.app/mountain/5d8d2b965a452f00176cf806) is the 96th largest peak on the [New England 100 Highest](https://www.wilderlist.app/list/5d8d2e6b5a452f00176cf80f). I mention the Hundred Highest as that is the primary incentive one would have to attempt to hike this peak. While I personally quite enjoyed hiking Elephant, it is not for everyone and if you do hike it it is important to go into it with the right expectations.
+
+![](elephant-mountain-view-from-bushwhack.jpg)
+
+<Figcaption>View near the summit</Figcaption>
+
+Getting to the mountain can be a bit of an adventure in and of itself. It is located off of a dirt road that is aptly name Elephant Mountain Road. For directions, [see here](https://www.google.com/maps/place/44%C2%B045'23.1%22N+70%C2%B047'39.2%22W/@44.7564014,-70.7964211,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d44.7564014!4d-70.7942324) for the closest point that Google Maps can get you to. The road continues beyond that, and it is up to you on how far you want to push your car. A vehicle with high-clearance is a must as the road gets pretty dicey. I drive a Subaru Forester and I still had to stop about a mile sooner than [older trip reports state](http://4000footers.com/elephant.shtml).
+
+![](elephant-mountain-map-wilderlist.jpg)
+
+<Figcaption>Map via [Wilderlist](https://www.wilderlist.app/mountain/5d8d2b965a452f00176cf806)</Figcaption>
+
+The additional road walking plus the hike itself brought the total mileage of the trip up to around 5 miles and 1300 feet of elevation gain. The beginning of the hike is very easy to follow. The old logging road eventually narrows and becomes more overgrown but still remains very clear. Eventually the road will come to an abrupt end and you will reach a large cairn that leads into a narrow path in the woods. This is where things begin to get tricky.
+
+![](elephant-mountain-logging-road.jpg)
+
+<Figcaption>Following the logging road up</Figcaption>
+
+While this herd-path is easy to follow at first, it quickly becomes covered in cut down trees. A logging company had come in and slashed down all of the smaller trees to allow more light for the larger trees to grow. This makes for a very difficult slog as you have to constantly be climbing over and balancing on top of pile after pile of thin, chopped up logs. Because of this, the herd path largely disappears for the middle section of the hike. I was briefly able to find it again at one point before losing it to more of the logs but then finally found it and followed it consistently near the top of the mountain.
+
+![](elephant-mountain-mossy-stream.jpg)
+
+<Figcaption>A mossy stream on Elephant Mountain</Figcaption>
+
+Despite the difficulty in navigating, the hike was otherwise quite enjoyable. There are some great views of the wild Maine wilderness while on the open logging roads, and if you are lucky there are even some views that you can stumble onto while on your bushwhacking route. The herd path weaves in and out of beautiful mossy forests and green marshes, and I ran into a number of woodpeckers, grouse, and snakes. There were even some ripe wild strawberries to sweeten the hike on the way up. All in all this mountain can be very rewarding if you know what you are getting yourself into, however if you are not pursuing the [New England 100 Highest](https://www.wilderlist.app/list/5d8d2e6b5a452f00176cf80f) there are easier ways to experience the beauty of the woods.
+
+![](elephant-mountain-bog-ferns.jpg)
+
+<Figcaption>A quiet bog in the woods</Figcaption>
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "hiking-in-new-england" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
+
