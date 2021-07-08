@@ -156,7 +156,7 @@ const PostLayout = (props) => {
       <Content>
         <Entry>
           <EntryDetails>
-            <em>{new Date(context.date).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+            <em>{new Date(context.date).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: "UTC"})}
             <br />
             By <Link to={'/author/' + author.id}>{author.name}</Link> in <Link to={'/category/' + category.id}>{category.name}</Link>
             </em>
