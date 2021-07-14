@@ -50,7 +50,7 @@ const Title = styled.h1`
   }
 `;
 
-const EntryDetails = styled.p`
+const EntryDetails = styled.div`
   line-height: 1.6;
   margin: 0 0 2.5rem;
 `;
@@ -142,6 +142,9 @@ const PostLayout = (props) => {
     />
   ) : null;
 
+  const date = new Date(context.date);
+  const formattedDate = date.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: "UTC"});
+
   return (
     <BaseLayout>
       <Meta
@@ -156,9 +159,10 @@ const PostLayout = (props) => {
       <Content>
         <Entry>
           <EntryDetails>
-            <em>{new Date(context.date).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: "UTC"})}
+            <em>
+              <time pubdate datetime={context.date} title={formattedDate}>{formattedDate}</time>
             <br />
-            By <Link to={'/author/' + author.id}>{author.name}</Link> in <Link to={'/category/' + category.id}>{category.name}</Link>
+              <address>By <Link to={'/author/' + author.id} rel="author">{author.name}</Link> in <Link to={'/category/' + category.id} rel="category">{category.name}</Link></address>
             </em>
           </EntryDetails>
           <MDXProvider components={shortcodes}>{props.children}</MDXProvider>
