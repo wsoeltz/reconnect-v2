@@ -1,0 +1,96 @@
+---
+title: "Escape the crowds of Krabi with a hike up Dragon Crest"
+path: "/2021/07/15/escape-the-crowds-of-krabi-with-a-hike-up-dragon-crest/"
+author: "kyle-soeltz"
+category: "international-hiking"
+featuredImage: "krabi-summit-featured.jpg"
+date: 2021-07-15
+---
+
+import { graphql } from "gatsby"
+
+[comment]: # (  ARTICLE CONTENT BEGINS HERE  )
+
+Before flying into Krabi, my fiancé and I had spent several days staying at an amazing [tree house resort](http://www.chiangmaitreehouse.com/) in the forested hills of northern Chiang Mai. It is safe to say our taste in travel tends to be more down-to-earth. When our shuttle pulled into the downtown area of Krabi and we saw literal flashing neon lights wrapped around every single tree with vans blasting electronic music driving up and down the strip, we realized we had not done enough research to truly understand the experience we were entering into.
+
+![](krab-dragon-crest-3d-rendering.jpg)
+
+<Figcaption>3D rendering of the Dragon Crest (via [Wilderlist](https://www.wilderlist.app/))</Figcaption>
+
+While we did end up having a great time at the beaches and resorts of Krabi, the main highlight of that leg of our trip was definitely our hike up Ngon Nak Nature Trail to the summit of Dragon Crest. It is an 1800ft mountain that overlooks the valley around southern Thailand and the summit has a spectacular overlook of the region.
+
+![](krabi-dragon-crest-outlook-1.jpg)
+
+<Figcaption>Viewpoint on the way up the mountain</Figcaption>
+
+Getting there was easy. If you do not have much experience on hiking trails, it might be worth looking into a guide, however if you have basic navigation skills and can read a map, the trail is very straight forward to follow. We hired a taxi to drive us there and arranged for him to pick us up several hours later when we finished. The start of the hiking trail can be found [here on Google Maps](https://www.google.com/maps/place/Dragon+Crest+(Khuan+Sai)/@8.0990555,98.7484866,21z/data=!4m12!1m6!3m5!1s0x3051bf239f26ec89:0xc76faf9fb099485d!2sDragon+Crest+Mountain!8m2!3d8.0992015!4d98.7484062!3m4!1s0x0:0x2fa76fb09a1537d4!8m2!3d8.0991275!4d98.7484847).
+
+![](krabi-dragon-crest-forest.jpg)
+
+<Figcaption>Some of the lush jungles we saw while hiking the nature trail</Figcaption>
+
+The full hike is about 4.6 miles round trip (2.3 miles each way). It is an out and back hike that follows the crest of the mountain to it's summit. As mentioned earlier, it is an 1800 foot mountain and the trail essentially starts at sea level, so it is a solid uphill climb.
+
+![](krabi-dragon-crest-stairs.jpg)
+
+<Figcaption>There are areas that are steep enough that stairs have been put in place to help</Figcaption>
+
+Along the way to the top you will enjoy an amazingly lush jungle full of green plants and the sounds of the local wildlife. If you love forests and trees then you will love the beauty of this part of the hike.
+
+![](krabi-dragon-crest-tree.jpg)
+
+<Figcaption>The jungle has some pretty impressive trees</Figcaption>
+
+As you near the top of the Dragon Crest, you start to get some outlooks into the surrounding area. We were amazed with how cool these views were with small but incredibly steep mountains dotting an otherwise completely flat landscape. I had never seen anything quite like it before.
+
+![](krabi-dragon-crest-outlook-2.jpg)
+
+<Figcaption>Outlook near the summit</Figcaption>
+
+From the summit there are multiple spots with panoramic views. One had a line of people waiting to reach it so they could take their Instagram selfies. If that's the kind of thing you're into then it is a great spot for your next Insta-hit. We passed on waiting in the line and enjoyed the many other amazing lookouts, largely by ourselves.
+
+![](krabi-dragon-crest-summit-view.jpg)
+
+<Figcaption>Views from the top</Figcaption>
+
+The way down is the same trail as the way up. We enjoyed all of the same views and forest walks as we made our way back to the trailhead and to where our driver had come to pick us up. This trip was one of the highlight of our few days in Krabi and I would definitely recommend it to anyone visiting the area, especially if you are looking for something quieter and more down-to-earth than what the rest of the Krabi experience has to offer.
+
+[comment]: # (  ARTICLE CONTENT ENDS HERE  )
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        authors {
+          id
+          name
+        }
+        categories {
+          id
+          name
+        }
+      }
+    }
+    allMdx(
+      sort: {fields: [frontmatter___date], order: DESC}
+      limit: 6
+      filter: {frontmatter: {category: {eq: "international-hiking" }}}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            author
+            date
+            path
+            title
+            featuredImage
+          }
+          slug
+          timeToRead
+          excerpt(truncate: false, pruneLength: 200)
+        }
+      }
+    }
+  }
+`
+
